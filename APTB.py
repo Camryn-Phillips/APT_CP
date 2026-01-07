@@ -753,7 +753,7 @@ def JUMP_remover_total(
         """
         group_left = starting_cluster_group.min()
         group_right = starting_cluster_group.max()
-        
+
         if group_left == 0:
             left = False
             dist_right = cluster_distances_dict[group_right]
@@ -1661,14 +1661,12 @@ def APTB_argument_parse(parser, argv):
         "--check_bad_points",
         help="whether the algorithm should attempt to identify and ignore bad data",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--plot_bad_points",
         help="Whether to actively plot the polynomial fit on a bad point. This will interrupt the program and require manual closing",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
@@ -1693,14 +1691,12 @@ def APTB_argument_parse(parser, argv):
         "--try_poly_extrap",
         help="whether to try to speed up the process by fitting ahead where polyfit confirms a clear trend",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--plot_poly_extrap",
         help="Whether to plot the polynomial fits during the extrapolation attempts. This will interrupt the program and require manual closing",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
@@ -1743,7 +1739,6 @@ def APTB_argument_parse(parser, argv):
         "--plot_final",
         help="whether to plot the final residuals at the end of each attempt",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
@@ -1774,14 +1769,12 @@ def APTB_argument_parse(parser, argv):
         "--multiprocessing",
         help="whether to include multiprocessing or not.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
         "--check_phase_wraps",
         help="whether to check for phase wraps or not",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
@@ -1801,7 +1794,6 @@ def APTB_argument_parse(parser, argv):
         help="Whether to loop through different starting masks after having found at least one solution.\n"
         + "Distinct from args.find_all_solutions",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
@@ -1814,28 +1806,24 @@ def APTB_argument_parse(parser, argv):
         "--save_state",
         help="Whether to take the time to save state. Setting to False could lower runtime, however making diagnosing issues very diffuclt.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--pre_save_state",
         help="Whether to save pre-fit and wrap_checker states. False by default because the ordinary states are usually sufficient.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
         "--branches",
         help="Whether to try to solve phase wraps that yield a reduced chisq less than args.prune_condition",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--debug_mode",
         help="Whether to enter debug mode. (default = True is recommended for the time being)",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
@@ -1849,35 +1837,30 @@ def APTB_argument_parse(parser, argv):
         "-pc",
         "--prune_condition",
         help="The reduced chisq above which to prune a branch.",
-        type=float,
         default=None,
     )
     parser.add_argument(
         "--find_all_solutions",
         help="Whether to continue searching for more solutions after finding the first one",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--start_warning",
         help="Whether to turn on the start_warning if the reduced chisq is > 3 or not.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--final_fit_everything",
         help="Whether to fit for the main parameters after phase connecting every cluster.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=True,
     )
     parser.add_argument(
         "--JUMPs_in_fit_params_list",
         help="Whether to fit for the main parameters after phase connecting every cluster.",
         action=argparse.BooleanOptionalAction,
-        type=bool,
         default=False,
     )
     parser.add_argument(
