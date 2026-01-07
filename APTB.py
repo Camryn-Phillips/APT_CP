@@ -1582,16 +1582,16 @@ def APTB_argument_parse(parser, argv):
         "--RAJ_prior",
         help="Bounds on lower and upper RAJ value. Input in the form [lower bound (optional)],[upper bound (optional)] with no space after the comma."
         + "\nTo not include a lower or upper bound, still include the comma in the appropriate spot."
-        + "\nThe bound should be entered in a form readable to the astropy.Angle class. ",
-        type=float,
+        + "\nThe bound should be entered in a form readable to the astropy.Angle class. For example, to set no lower bound and an upper bound of RAJ=18:34:29.3, input ',18h34m29.3s'",
+        type=str,
         default=None,
     )
     parser.add_argument(
         "--DECJ_prior",
         help="Bounds on lower and upper DECJ value. Input in the form [lower bound (optional)],[upper bound (optional)] with no space after the comma."
         + "\nTo not include a lower or upper bound, still include the comma in the appropriate spot."
-        + "\nThe bound should be entered in a form readable to the astropy.Angle class",
-        type=float,
+        + "\nThe bound should be entered in a form readable to the astropy.Angle class. For example, to set no higher bound and a lower bound of DECJ=56:08:34.6, input '56d08m34.6s,'",
+        type=str,
         default=None,
     )
     parser.add_argument(
@@ -1933,14 +1933,14 @@ def APTB_argument_parse(parser, argv):
     if args.RAJ_prior:
         RAJ_prior = args.RAJ_prior.split(",")
         args.RAJ_prior = [None, None]
-        for i in (0, 1):
+        for i in range(2):
             if RAJ_prior[i]:
                 args.RAJ_prior[i] = Angle(RAJ_prior[i]).hour
 
     if args.DECJ_prior:
         DECJ_prior = args.DECJ_prior.split(",")
-        args.RAJ_prior = [None, None]
-        for i in [0, 1]:
+        args.DECJ_prior = [None, None]
+        for i in range(2):
             if DECJ_prior[i]:
                 args.DECJ_prior[i] = Angle(DECJ_prior[i]).deg
 
